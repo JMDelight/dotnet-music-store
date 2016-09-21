@@ -10,10 +10,14 @@ namespace MusicStore.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
-            
+        {   
         }
-        public DbSet<Sale> Sales { get; set; }
-        public DbSet<Item> Items { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MusicStore;integrated security=True");
+        }
+        public ApplicationDbContext() { }
+        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
     }
 }

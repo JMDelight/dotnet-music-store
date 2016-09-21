@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div id="inventory">
+    @Html.Partial("Inventory")
+</div>
+@if (User.IsInRole("Manager"))
+{
+    @Html.Partial("AddItem")
+
+}

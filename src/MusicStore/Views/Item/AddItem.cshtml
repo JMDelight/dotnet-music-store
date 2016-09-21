@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="forms">
+    <div id="item-form">
+        <form class="new-item">
+            <div class="form-group">
+                <label for="ItemName" class="control-label">Item Name</label>
+                <input name="ItemName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="Stock" class="control-label">Stock</label>
+                <input name="Stock" type="number" min="1" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="BuyCost" class="control-label">Buy Cost</label>
+                <input name="BuyCost" type="number" min="1" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="SaleCost" class="control-label">Sale Cost</label>
+                <input name="SaleCost" type="number" min="1" class="form-control" />
+            </div>
+            <div>
+                <button class="btn btn-lg btn-success">Save</button>
+            </div>
+        </form>
+    </div>

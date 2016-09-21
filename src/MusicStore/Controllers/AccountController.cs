@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MusicStore.Models;
 using Microsoft.AspNetCore.Identity;
 using MusicStore.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MusicStore.Controllers
 {
@@ -31,6 +32,7 @@ namespace MusicStore.Controllers
 
         public IActionResult Register()
         {
+            ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
             return View();
         }
 
@@ -41,6 +43,7 @@ namespace MusicStore.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, model.RoleName);
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Index", "Home");
             }

@@ -1,0 +1,10 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@foreach (var item in Model)
+{
+    <h4>@item.Stock in Stock of @item.ItemName</h4>
+        <h6>Price: $@item.SalePrice Thousand</h6>
+}
