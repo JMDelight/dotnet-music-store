@@ -11,4 +11,16 @@
             }
         });
     });
+    $('#inventory').on("submit", ".new-sale", function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/Sale/Create',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'html',
+            success: function (result) {
+                console.log("success");
+            }
+        });
+    });
 });

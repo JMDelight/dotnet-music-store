@@ -9,6 +9,14 @@ namespace MusicStore.Models
 {
     public class Sale
     {
+        public Sale(int itemId, string userId, int saleId = 0)
+        {
+            ItemId = itemId;
+            SaleId = saleId;
+            UserId = userId;
+        }
+        public Sale() { }
+
         [Key]
         public int SaleId { get; set; }
         public int ItemId { get; set; }
