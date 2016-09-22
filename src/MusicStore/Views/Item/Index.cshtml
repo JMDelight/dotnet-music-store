@@ -6,6 +6,13 @@
 <div id="inventory">
     @Html.Partial("Inventory")
 </div>
+<div id="user-sales">
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("UserSales", "Sale")
+
+    }
+</div>
 @if (User.IsInRole("Manager"))
 {
     @Html.Partial("AddItem")

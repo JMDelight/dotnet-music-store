@@ -14,4 +14,3 @@ namespace MusicStore.Models
         void DeleteAll();
     }
 }
-}

@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@foreach (var sale in ViewBag.UserSales)
+{
+    <h4>@sale.Item.ItemName</h4>
+    <form class="return">
+        <input name="SaleId" type="hidden" value="@sale.SaleId" class="form-control" />
+        <div>
+            <button class="btn btn-lg btn-success">Return</button>
+        </div>
+    </form>
+
+}

@@ -49,6 +49,7 @@ namespace MusicStore.Controllers
             }
             else
             {
+                ViewBag.RoleName = new SelectList(_db.Roles, "Name", "Name");
                 return View();
             }
         }

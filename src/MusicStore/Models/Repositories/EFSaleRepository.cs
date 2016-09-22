@@ -26,6 +26,9 @@ namespace MusicStore.Models
         public Sale Save(Sale sale)
         {
             db.Sales.Add(sale);
+            Item soldItem = db.Items.FirstOrDefault(i => i.ItemId == sale.ItemId);
+            soldItem.Stock--;
+            db.Entry(soldItem).State = EntityState.Modified;
             db.SaveChanges();
             return sale;
         }
@@ -40,6 +43,9 @@ namespace MusicStore.Models
         public void Remove(Sale sale)
         {
             db.Sales.Remove(sale);
+            Item returnedItem = db.Items.FirstOrDefault(i => i.ItemId == sale.ItemId);
+            returnedItem.Stock++;
+            db.Entry(returnedItem).State = EntityState.Modified;
             db.SaveChanges();
         }
         public void DeleteAll()

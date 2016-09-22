@@ -7,12 +7,12 @@
 {
     <h4>@item.Stock in Stock of @item.ItemName</h4>
         <h6>Price: $@item.SalePrice Thousand</h6>
-        @if (User.Identity.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated && item.Stock > 0)
         {
             <form class="new-sale">
                     <input name="itemId" type="hidden" value="@item.ItemId" class="form-control" />
                 <div>
-                    <button class="btn btn-lg btn-success">Save</button>
+                    <button class="btn btn-lg btn-success">Make a Sale</button>
                 </div>
             </form>
 

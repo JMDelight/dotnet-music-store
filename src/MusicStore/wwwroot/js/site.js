@@ -11,7 +11,7 @@
             }
         });
     });
-    $('#inventory').on("submit", ".new-sale", function (event) {
+    $('body').on("submit", ".new-sale", function (event) {
         event.preventDefault();
         $.ajax({
             url: '/Sale/Create',
@@ -19,7 +19,23 @@
             data: $(this).serialize(),
             dataType: 'html',
             success: function (result) {
-                console.log("success");
+                console.log("Yo");
+
+                $('.body-content').html(result);
+            }
+        });
+    });
+    $('body').on("submit", ".return", function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/Sale/Return',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'html',
+            success: function (result) {
+                console.log("Yo");
+
+                $('.body-content').html(result);
             }
         });
     });
