@@ -38,10 +38,7 @@ namespace MusicStore.Controllers
         {
             return View(itemRepo.Items.ToList());
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
+
         [HttpPost]
         public IActionResult Create(Item item)
         {
